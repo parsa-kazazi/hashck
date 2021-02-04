@@ -5,7 +5,6 @@ Coded by parsa kazazi
 @parsa_kazazi (Github, Twitter)
 
 Quick and easy Hash Cracker python3 script
-this script can crack md5, sha1, sha224, sha256, sha384, sha512, blake2b, blake2s, sha3_224, sha3_256, sha3_384 and sha3_512 hashes
 Works on all operating systems
 For legal activities only
 Version: 1.0
