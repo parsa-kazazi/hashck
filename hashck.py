@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Coded by parsa kazazi
-@parsa_kazazi (Github, Twitter)
+GitHub: https://github.com/parsa-kazazi
+Twitter: https://twitter.com/parsa_kazazi
 
 Quick and easy Hash Cracker python3 script
 Works on all operating systems
@@ -16,27 +17,14 @@ import time
 
 os_name = os.name
 
-def clear():
-    if (os_name == "nt"):
-        os.system("cls")
-    else:
-        os.system("clear")
-
-clear()
 if (os_name == "nt"):
     os.system("title HASH-CK")
 else:
     os.system("printf '\033]2;HASH-CK\a'")
 
 print("""
-
-    ██   ██  █████  ███████ ██   ██        ██████ ██   ██
-    ██   ██ ██   ██ ██      ██   ██       ██      ██  ██
-    ███████ ███████ ███████ ███████ █████ ██      █████
-    ██   ██ ██   ██      ██ ██   ██       ██      ██  ██
-    ██   ██ ██   ██ ███████ ██   ██        ██████ ██   ██
-
-    Quick and easy Hash Cracker
+HASH-CK
+Quick and easy Hash Cracker. version 1.0
 """)
 
 put = str("\033[94m[*]\033[0m ")
@@ -72,13 +60,8 @@ except UnicodeDecodeError:
     exit()
 print("")
 time.sleep(2)
-clear()
-for i in range(20):
-    print("\n " + "▌" * i + "\n\n" + info + "Please Wait...\n")
-    time.sleep(0.2)
-    if (i < 19):
-        clear()
-time.sleep(2)
+print(info + "Please Wait...\n")
+time.sleep(3)
 for password in wordlist_file:
 
     password = password.strip()
