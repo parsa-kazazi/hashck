@@ -1,15 +1,11 @@
-#!/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Coded by parsa kazazi
-GitHub: https://github.com/parsa-kazazi
-Twitter: https://twitter.com/parsa_kazazi
+# Coded by parsa kazazi
+# GitHub: https://github.com/parsa-kazazi
+#
+# Quick and easy Hash Cracker python3 script
+# Works on all operating systems
+# For legal activities only
+# Version: 1.0
 
-Quick and easy Hash Cracker python3 script
-Works on all operating systems
-For legal activities only
-Version: 1.0
-"""
 
 import os
 import hashlib
@@ -24,41 +20,36 @@ else:
 
 print("""
 HASH-CK
-Quick and easy Hash Cracker. version 1.0
+Quick and easy Hash Cracker.
 """)
-
-put = str("\033[94m[*]\033[0m ")
-info = str("\033[94m[i]\033[0m ")
-good = str("\033[92m[+]\033[0m ")
-error = str("\033[91m[!]\033[0m ")
 
 print("""
 1-md5   2-sha1   3-sha224   4-sha256   5-sha384   6-sha512   7-blake2b
 8-blake2s   9-sha3_224   10-sha3_256   11-sha3_384   12-sha3_512
 """)
 
-hash_type_number = input(put + "Select hash type: ")
+hash_type_number = input("Select hash type: ")
 
 if (hash_type_number not in ["1", "2", "3", "3", "4", "5", "6", "7", "8", "9", "10", "10", "11", "12", "13", "14"]):
-    print(error + "Invailed input\n")
+    print("Invailed input\n")
     exit()
 
-hash_string = input(put + "Enter Your hash: ")
-wordlist_filename = input(put + "Wordlist file (Enter to default): ")
+hash_string = input("Enter Your hash: ")
+wordlist_filename = input("Wordlist file (Enter to default): ")
 if (wordlist_filename == ""):
     wordlist_filename = "passwords.txt"
 
 try:
     wordlist_file = open(wordlist_filename, "r", encoding="latin-1").readlines()
 except FileNotFoundError:
-    print(error + "\"" + wordlist_filename + "\" : File not found\n")
+    print("\"" + wordlist_filename + "\" : File not found\n")
     exit()
 except UnicodeDecodeError:
-    print(error + "\"" + wordlist_filename + "\" : Unicode decode error\n")
+    print("\"" + wordlist_filename + "\" : Unicode decode error\n")
     exit()
 print("")
 time.sleep(2)
-print(info + "Please Wait...\n")
+print("Please Wait...\n")
 time.sleep(3)
 for password in wordlist_file:
 
@@ -89,12 +80,12 @@ for password in wordlist_file:
     elif (hash_type_number == "12"):
         result = hashlib.sha3_512(password.encode("utf-8")).hexdigest()
     
-    print(info + "Try test: " + password)
+    print("Try test: " + password)
 
     if (hash_string == result):
-        print(good + "Hash Cracked!")
+        print("\nHash Cracked!\n")
         time.sleep(1)
-        print(info + hash_string + " > " + password + "\n")
+        print(hash_string + " > " + password + "\n")
         exit()
 
-print("\n" + error + "Wordlist \"" + wordlist_filename + "\" cannot crack hash: " + hash_string + "\n")
+print("\nWordlist \"" + wordlist_filename + "\" cannot crack hash: " + hash_string + "\n")
